@@ -11,16 +11,16 @@ public class GuardHearing : GuardAction
 
 	public override TaskStatus OnUpdate()
 	{
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo))
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Debug.Log("I got you");
-                _placesToGo.Add(hitInfo.point);
+                _guard.placesToGo.Add(hit.point);
+                return TaskStatus.Success;
             }
         }
-        return TaskStatus.Success;
+        return TaskStatus.Running;
     }
 }

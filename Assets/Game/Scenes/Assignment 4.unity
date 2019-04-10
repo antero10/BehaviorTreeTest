@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -409,6 +409,7 @@ MonoBehaviour:
   - {fileID: 1869699482}
   - {fileID: 1495694067}
   - {fileID: 452837948}
+  _agent: {fileID: 0}
 --- !u!114 &179944861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675574678}
   - component: {fileID: 675574679}
+  - component: {fileID: 675574680}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -936,6 +938,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &675574680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675574677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60, y: 5, z: 60}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &696204523
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,10 +22,12 @@ public class ClickToMove : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            Debug.Log("click");
-            if(Physics.Raycast(ray, out hit))
+            if(Physics.Raycast(ray, out hit, 100f))
             {
-                Debug.Log(hit.point);
+                if (!guardController.placesToGo.Contains(hit.point))
+                {
+                    guardController.placesToGo.Add(hit.point);
+                }
             }
         }
     }
