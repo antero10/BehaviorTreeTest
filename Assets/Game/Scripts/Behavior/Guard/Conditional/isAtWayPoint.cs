@@ -2,16 +2,16 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-public class isLookingForObject : GuardConditional
+public class isAtWayPoint : GuardConditional
 {
 
     public override void OnStart()
     {
         base.OnStart();
     }
-
     public override TaskStatus OnUpdate()
 	{
-        return _guard.Health > 0 && _placesToGo.Count > 0 ? TaskStatus.Success : TaskStatus.Failure;
+        base.OnUpdate();
+        return _guard.Health > 0 && (_isAtWayPoint.Value && _placesToGo.Count == 0) ? TaskStatus.Success : TaskStatus.Failure;
 	}
 }

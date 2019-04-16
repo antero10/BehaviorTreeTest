@@ -11,6 +11,7 @@ public class isPatroling : GuardConditional
 
     public override TaskStatus OnUpdate()
 	{
-        return _placesToGo.Count == 0 ? TaskStatus.Success : TaskStatus.Failure;
+        base.OnUpdate();
+        return _guard.Health > 0 && _placesToGo.Count == 0  ? TaskStatus.Success : TaskStatus.Failure;
     }
 }

@@ -11,6 +11,8 @@ public class GuardController : MonoBehaviour
 
     [HideInInspector]
     public NavMeshAgent _agent;
+
+    public float Health = 100.0f;
     // Start is called before the first frame update
     void Start()
     {

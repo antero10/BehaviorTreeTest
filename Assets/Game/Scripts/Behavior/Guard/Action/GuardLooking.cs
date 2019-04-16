@@ -11,6 +11,7 @@ public class GuardLooking : GuardAction
     private bool onMyWay = false;
     private List<Vector3> orderList;
 
+
     public override void OnStart()
 	{
         base.OnStart();
@@ -19,6 +20,7 @@ public class GuardLooking : GuardAction
 
 	public override TaskStatus OnUpdate()
 	{
+        base.OnUpdate();
         if (_guard.placesToGo.Count > 0)
         {
             if (!onMyWay)
@@ -34,7 +36,6 @@ public class GuardLooking : GuardAction
 
         if (_guard.placesToGo.Count == 0 )
         {
-            Debug.Log("I'm done i go back go my work");
             return TaskStatus.Success;
         }
 		return TaskStatus.Running;
@@ -44,7 +45,7 @@ public class GuardLooking : GuardAction
     {
         _agent.SetDestination(point);
         onMyWay = true;
-        yield return new WaitUntil(() => Vector3.Distance(_guard.transform.position, point) <= 5.0f);
+        yield return new WaitUntil(() => Vector3.Distance(_guard.transform.position, point) <= maxDistance);
         _guard.placesToGo.Remove(point);
         onMyWay = false;
         OrderList();
